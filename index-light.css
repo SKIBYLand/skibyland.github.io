@@ -38,6 +38,9 @@ Metto qui lo stile della sezione "Progetti" */
     flex-direction: column;
     margin-bottom: 20px;
 }
+.progetti-titolo {
+    margin: 0 0 5px 0;
+}
 /* list display */
 .progetti-lista {
     display: flex;

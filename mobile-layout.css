@@ -1,0 +1,41 @@
+/* Enhance the view on mobile devices */
+
+@media (max-width: 768px) {
+    .mio-nome, .social-media {
+        display: block;
+    }
+
+    a[href="mailto:kanavianney@icloud.com"], a[href*="https://www.linkedin.com/in/vianney-kanah/"], a[href="https://github.com/SKIBYLand"] {
+        display: inline-flex; /* scale the social icon contaniner */
+        width: 48px;   
+        height: 48px;
+        padding: 8px;
+    }
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+    /* test readability */
+    body {
+        font-size: 1rem;
+    }
+
+    /* spacing section/paragraph */
+    .descrizione, .competenze, .progetti {
+        margin: 0 0 60px 0;
+    }
+
+    .progetti {
+        display: block;
+    }
+    .progetti-titolo {
+        margin: 0 0 20px 0;
+    }
+    .progetti-lista {
+        display: block;
+        padding: 0;
+    }
+    .progetti-lista li {
+        margin: 0 0 20px 0;
+    }
+}
