@@ -4,6 +4,12 @@ html {
     font-family: IBM Plex Mono;
     box-sizing: border-box;
 }
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    font-family: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -42,15 +48,11 @@ p {
     font-size: 0.6em;
     display: flex;
     justify-content: center;
-
     width: 100%;
     padding: 10px;
 }
-
-@media only screen and (max-width: 768px) {
-    body
-    
+@media only screen and (max-width: 768px) { 
     #time-displayer {
-        font-size: 4em;
+        font-size: 3em;
     }
 }
