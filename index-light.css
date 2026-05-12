@@ -1,7 +1,6 @@
 html {
     margin: 0;
     padding: 0;
-    /* Ajout des guillemets et de la police de secours "monospace" */
     font-family: 'IBM Plex Mono', monospace; 
     box-sizing: border-box;
 }
@@ -22,6 +21,7 @@ p {
     margin-top: 0;
     margin-left: 10px;
     margin-right: 30%;
+    margin-bottom: 0;
 }
 
 @media (prefers-color-scheme: light) {
@@ -41,9 +41,28 @@ p {
     font-size: 5em;
 }
 
+.github-link {
+    display: inline-flex;
+    margin-top: 15px;
+    color: inherit;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 10px; 
+    margin-left: 0; 
+}
+
+.github-link svg {
+    width: 36px;
+    height: 36px;
+    transition: all 0.2s ease;
+}
+
+.github-link:hover {
+    opacity: 0.6;
+    transform: scale(1.05); 
+}
+
 #footer {
     margin: 0;
-    /* J'ai retiré le padding: 0 qui était écrasé plus bas */
     position: fixed;
     bottom: 0;
     font-size: 0.6em;
@@ -51,12 +70,19 @@ p {
     justify-content: center;
     width: 100%;
     padding: 10px;
-    /* Correction du dépassement du footer sur mobile */
     box-sizing: border-box; 
 }
 
 @media only screen and (max-width: 768px) { 
     #time-displayer {
         font-size: 3em;
+    }
+    .github-link {
+        margin-top: 25px;
+    }
+
+    .github-link svg {
+        width: 48px; 
+        height: 48px;
     }
 }
