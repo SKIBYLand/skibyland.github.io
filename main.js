@@ -1,31 +1,51 @@
-function switchLanguage() {
-    const langToggle = document.querySelector('.toggle-button');
-    const italiano = document.getElementById('italiano');
-    const inglese = document.getElementById('inglese');
 
-    // Check if English is currently hidden
-    const isEnglishHidden = window.getComputedStyle(inglese).display === 'none';
+const cities = [
+    { name: "Tokyo", timezone: "Asia/Tokyo" },
+    { name: "New York", timezone: "America/New_York" },
+    { name: "Paris", timezone: "Europe/Paris" },
+    { name: "Sydney", timezone: "Australia/Sydney" },
+    { name: "Dubaï", timezone: "Asia/Dubai" },
+    { name: "Rio de Janeiro", timezone: "America/Sao_Paulo" },
+    { name: "Johannesburg", timezone: "Africa/Johannesburg" },
+    { name: "Los Angeles", timezone: "America/Los_Angeles" },
+    { name: "Singapour", timezone: "Asia/Singapore" },
+    { name: "London", timezone: "Europe/London" },
+    { name: "Yaoundé", timezone: "Africa/Douala" },
+    { name: "Mbouda", timezone: "Africa/Douala" },
+    { name: "Bangangté", timezone: "Africa/Douala" },
+    { name: "Foumban", timezone: "Africa/Douala" },
+    { name: "Padova", timezone: "Europe/Rome" },
+    { name: "Milan", timezone: "Europe/Rome" },
+    { name: "Rome", timezone: "Europe/Rome" },
+    { name: "Lima", timezone: "America/Lima" },
+    { name: "Bogotá", timezone: "America/Bogota" }
+];
 
-    if (isEnglishHidden) {
-        inglese.style.display = 'block';
-        italiano.style.display = 'none';
-        langToggle.textContent = 'Italiano';
-        document.documentElement.lang = 'en'; // Update site metadata
-        localStorage.setItem('preferredLanguage', 'en'); // Save preference
-    } else {
-        inglese.style.display = 'none';
-        italiano.style.display = 'block';
-        langToggle.textContent = 'English';
-        document.documentElement.lang = 'it'; // Update site metadata
-        localStorage.setItem('preferredLanguage', 'it'); // Save preference
+function initDynamicRandomClock() {
+
+    const randomer = Math.floor(Math.random() * cities.length);
+    const randomCity = cities[randomer];
+    const displayElement = document.getElementById('time-displayer');
+
+
+    function updateTime() {
+        const timeFormatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: randomCity.timezone,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        
+        const timeString = timeFormatter.format(new Date());
+
+        if (displayElement) {
+            displayElement.innerHTML = `It's actually <strong>${timeString}</strong> in <strong>${randomCity.name}</strong>.`;
+        }
     }
 
-// Load preferred language on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const preferredLanguage = localStorage.getItem('preferredLanguage');
-    if (preferredLanguage) {
-        switchLanguage(preferredLanguage);
-    }
-});
+    updateTime();
 
+    setInterval(updateTime, 1000);
 }
+
+window.addEventListener('DOMContentLoaded', initDynamicRandomClock);
