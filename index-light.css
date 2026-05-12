@@ -1,7 +1,8 @@
 html {
     margin: 0;
     padding: 0;
-    font-family: IBM Plex Mono;
+    /* Ajout des guillemets et de la police de secours "monospace" */
+    font-family: 'IBM Plex Mono', monospace; 
     box-sizing: border-box;
 }
 
@@ -42,7 +43,7 @@ p {
 
 #footer {
     margin: 0;
-    padding: 0;
+    /* J'ai retiré le padding: 0 qui était écrasé plus bas */
     position: fixed;
     bottom: 0;
     font-size: 0.6em;
@@ -50,7 +51,10 @@ p {
     justify-content: center;
     width: 100%;
     padding: 10px;
+    /* Correction du dépassement du footer sur mobile */
+    box-sizing: border-box; 
 }
+
 @media only screen and (max-width: 768px) { 
     #time-displayer {
         font-size: 3em;
