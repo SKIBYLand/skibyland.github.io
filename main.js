@@ -39,7 +39,7 @@ function initDynamicRandomClock() {
         const timeString = timeFormatter.format(new Date());
 
         if (displayElement) {
-            displayElement.innerHTML = `It's actually <strong>${timeString}</strong> in <strong>${randomCity.name}</strong>.`;
+            displayElement.innerHTML = `It's currently <strong>${timeString}</strong> in <strong>${randomCity.name}</strong>.`;
         }
     }
 
