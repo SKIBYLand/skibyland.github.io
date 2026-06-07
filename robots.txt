@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skibyland.github.io/sitemap.xml
